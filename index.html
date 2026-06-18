@@ -2,34 +2,54 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>音声実験</title>
+<title>音源聴取</title>
 
 <style>
-body{
-    text-align:center;
-    margin-top:100px;
-    font-family:sans-serif;
-}
 
-#result{
-    display:none;
+body{
+    font-family: sans-serif;
+    margin: 50px;
+    line-height: 1.8;
 }
 
 h1{
-    font-size:80px;
+    font-size: 28px;
 }
+
+button{
+    font-size: 20px;
+    padding: 10px 30px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#result{
+    display: none;
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div id="start">
-    <button id="startBtn">再生開始</button>
-</div>
+<h1>音源聴取</h1>
+
+<p>
+以下のボタンをクリックして音を再生してください．
+</p>
+
+<button id="playButton">音源1</button>
+
+<p>
+※ 実験中は音量の調整を変更しないで下さい．
+</p>
 
 <div id="result">
-    <h1>37</h1>
-    <p>この番号をGoogle Formsに入力してください</p>
+    番号：37
 </div>
 
 <audio id="audio">
@@ -40,13 +60,18 @@ h1{
 
 const audio = document.getElementById("audio");
 
-document.getElementById("startBtn").onclick = () => {
-    document.getElementById("start").style.display = "none";
+document.getElementById("playButton").onclick = () => {
+
+    document.getElementById("playButton").disabled = true;
+
     audio.play();
+
 };
 
 audio.addEventListener("ended", () => {
+
     document.getElementById("result").style.display = "block";
+
 });
 
 </script>
