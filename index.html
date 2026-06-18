@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>音声実験</title>
+
+<style>
+body{
+    text-align:center;
+    margin-top:100px;
+    font-family:sans-serif;
+}
+
+#result{
+    display:none;
+}
+
+h1{
+    font-size:80px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="start">
+    <button id="startBtn">再生開始</button>
+</div>
+
+<div id="result">
+    <h1>37</h1>
+    <p>この番号をGoogle Formsに入力してください</p>
+</div>
+
+<audio id="audio">
+    <source src="01piano_high_1.wav" type="audio/wav">
+</audio>
+
+<script>
+
+const audio = document.getElementById("audio");
+
+document.getElementById("startBtn").onclick = () => {
+    document.getElementById("start").style.display = "none";
+    audio.play();
+};
+
+audio.addEventListener("ended", () => {
+    document.getElementById("result").style.display = "block";
+});
+
+</script>
+
+</body>
+</html>
